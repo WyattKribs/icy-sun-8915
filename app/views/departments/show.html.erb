@@ -1,0 +1,4 @@
+<h1><%= @department.name %> Department on the <%= @department.floor %> floor</h1>
+<% @department.employees.each do |employee| %>
+<%= "#{employee.name} level: #{employee.level}" %>
+<% end %>
