@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe 'department show page' do
+
+  it "can tell you the name and floor of the department" do
+    department_1 = Department.create(name: "Receiving", floor: "1st")
+
+    visit "/departments/#{department_1.id}"
+
+    expect(page).to have_content("Receiving Department on the 1st floor")
+  end
+
   it 'Has the name and level of each employee in the department' do
     department_1 = Department.create(name: "Receiving", floor: "1st")
     department_2 = Department.create(name: "Mail", floor: "Basement")
